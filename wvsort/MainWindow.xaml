@@ -1,0 +1,34 @@
+﻿<Window x:Class="wvsort.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wvsort"
+        mc:Ignorable="d"
+        MinWidth="400"
+        MinHeight="200"
+        Title="WV曲順直し" Height="550" Width="400">
+    <Grid>
+        <ListView x:Name="listView" Margin="10,14,10,36" SizeChanged="ListView_SizeChanged" ItemsSource="{Binding}" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="変更前"                                        
+         DisplayMemberBinding="{Binding Before}"  />
+                    <GridViewColumn Header="変更後"  
+         DisplayMemberBinding="{Binding After}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="open" Content="開く" Margin="10,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Width="100" Click="Open_Click" AllowDrop="True"/>
+        <Button x:Name="start" Content="スタート" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Click="Start_Click"/>
+        <Grid HorizontalAlignment="Center" Height="25" VerticalAlignment="Bottom" Width="154" Margin="119,0,119,10">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="stratnumber" HorizontalAlignment="Right" Height="21" TextWrapping="Wrap" Text="01                  " VerticalAlignment="Bottom" Width="30" Margin="0,0,50,0"/>
+            <Button x:Name="reset" Content="リセット                 " Margin="109,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="40" RenderTransformOrigin="1.529,0.359" Height="21" Click="Reset_Click"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="StartNum" VerticalAlignment="Bottom" Margin="14,0,0,3"/>
+        </Grid>
+    </Grid>
+</Window>
